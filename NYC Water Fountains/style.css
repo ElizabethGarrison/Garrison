@@ -1,65 +1,47 @@
-body {
-	margin: 0;
-	padding: 0;
+#loader-wrapper {
+    position: fixed;
+    z-index: 99999;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
-
-#loading {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: #fff;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	z-index: 999;
+#loader {
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+    position: relative;
+    border: 4px solid #f2f2f2;
+    animation: animateLoader 2s infinite;
 }
-
-.raindrop {
-	width: 100px;
-	height: 100px;
-	border-radius: 50%;
-	border: 5px solid #fff;
-	animation: raindrop-fall 2s ease-in-out infinite;
+#loader:before {
+    content: "";
+    display: block;
+    border-radius: 50%;
+    width: 0;
+    height: 0;
+    margin: 6px;
+    box-sizing: border-box;
+    border: 26px solid #1d7cf2;
+    border-color: #1d7cf2 transparent #1d7cf2 transparent;
+    animation: animateRipple 2s infinite;
 }
-
-@keyframes raindrop-fall {
-	0% {
-		transform: translateY(-200px);
-	}
-	50% {
-		transform: translateY(200px);
-	}
-	100% {
-		transform: translateY(-200px);
-	}
+@keyframes animateLoader {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
-
-.ripple {
-	width: 100px;
-	height: 100px;
-	border-radius: 50%;
-	border: 5px solid #fff;
-	position: absolute;
-	animation: ripple-effect 1s linear infinite;
-}
-
-@keyframes ripple-effect {
-	0% {
-		transform: scale(0.2);
-		opacity: 1;
-	}
-	100% {
-		transform: scale(1.5);
-		opacity: 0;
-	}
-}
-
-#map {
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	top: 0;
-	left: 0;
+@keyframes animateRipple {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
 }
