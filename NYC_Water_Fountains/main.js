@@ -3,6 +3,20 @@ const width = window.innerWidth * 0.9,
  height = window.innerHeight * 0.7,
  margin = { top: 20, bottom: 50, left: 60, right: 40 };
 
+// Show loading screen
+const loader = d3.select("body").append("div")
+  .attr("id", "loader")
+  .style("display", "flex")
+  .style("justify-content", "center")
+  .style("align-items", "center");
+  
+loader.append("div")
+  .attr("class", "spinner");
+  
+loader.append("div")
+  .attr("class", "text")
+  .text("Loading...");
+
 /**
  * LOAD DATA
  * Using a Promise.all([]), we can load more than one dataset at a time
@@ -54,7 +68,7 @@ const coolingSitesShapes = svg.selectAll("circle.coolingSitesShapes")
   .attr("transform", d => {
     const [x, y] = projection([d.Longitude, d.Latitude])
     return `translate(${x}, ${y})`
-  })
+  })  
   .attr("fill", "#CC2936");
 
 
