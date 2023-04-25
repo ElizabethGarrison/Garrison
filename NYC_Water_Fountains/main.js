@@ -1,62 +1,97 @@
-// Set the dimensions of the canvas
-var margin = {top: 20, right: 20, bottom: 20, left: 20},
-	width = window.innerWidth - margin.left - margin.right,
-	height = window.innerHeight - margin.top - margin.bottom;
+/* CONSTANTS AND GLOBALS */
+const width = window.innerWidth * 0.9,
+ height = window.innerHeight * 0.7,
+ margin = { top: 20, bottom: 50, left: 60, right: 40 };
 
-// Set the map projection
-var projection = d3.geoMercator()
-	.center([-73.94, 40.70])
-	.scale(60000)
-	.translate([width / 2, height / 2]);
+/**
+ * LOAD DATA
+ * Using a Promise.all([]), we can load more than one dataset at a time
+ * */
+ Promise.all([
+  d3.json("../data/Borough_Boundaries.geojson"),
+  d3.csv("../data/Cool_It__NYC_2020_-_Cooling_Sites.csv", d3.autoType),
+]).then(([geojson, coolingSites]) => {
 
-// Create a path generator
-var path = d3.geoPath()
-	.projection(projection);
+  console.log('coolingSites', coolingSites)
 
-// Create the SVG element
-var svg = d3.select("#map").append("svg")
-	.attr("width", width)
-	.attr("height", height);
+  const svg = d3.select("#container")
+  .append("svg")
+  .attr("width", width)
+  .attr("height", height);
 
-// Create a tooltip
-var tooltip = d3.tip()
-	.attr("class", "d3-tip")
-	.offset([-10, 0])
-	.html(function(d) {
-		return "<strong>Property Name:</strong> " + d.PropertyName + "<br>" + "<strong>Feature Type:</strong> " + d.FeatureType + "<br>" + "<strong>Status:</strong> " + d.Status;
-	});
-svg.call(tooltip);
+  svg.append("text")
+  .attr("x", (width / 2))             
+  .attr("y", margin.top * 2)
+  .attr("text-anchor", "middle")  
+  .style("font-size", "20px") 
+  .style("font-weight", "bold") 
+  .style("fill", "#08415C") 
+  .text("NYC Cooling Sites");
 
-// Load the data
-d3.csv("Cool_It__NYC_2020_-_Cooling_Sites.csv", function(data) {
-	// Draw the map
-	d3.json("nyc_boroughs.geojson", function(error, json) {
-		if (error) throw error;
-		svg.append("g")
-			.attr("class", "boroughs")
-			.selectAll("path")
-			.data(json.features)
-			.enter().append("path")
-			.attr("d", path);
+  
+  // SPECIFY PROJECTION
+  const projection = d3.geoMercator()
+    .fitSize([width, height], geojson)
 
-		// Draw the data points
-		svg.append("g")
-			.attr("class", "points")
-			.selectAll("circle")
-			.data(data)
-			.enter().append("circle")
-			.attr("class", "circle")
-			.attr("r", 5)
-			.attr("cx", function(d) { return projection([d.X, d.Y])[0]; })
-			.attr("cy", function(d) { return projection([d.X, d.Y])[1]; })
-			.on("mouseover", function(d) {
-				tooltip.show(d);
-			})
-			.on("mouseout", function(d) {
-				tooltip.hide(d);
-			});
-	});
+   // DEFINE PATH FUNCTION
+  const pathGen = d3.geoPath(projection)
 
-	// Remove the loading screen
-	$("#loader-wrapper").fadeOut();
+    // APPEND GEOJSON PATH  
+  const boroughs = svg.selectAll("path.boroughs")
+    .data(geojson.features)
+    .join("path")
+    .attr("class", "boroughs")
+    .attr("d", coords => pathGen(coords))
+    .attr("fill", "#EEE5E9") 
+    .attr("stroke", "#08415C")
+
+// APPEND DATA AS SHAPE
+const coolingSitesShapes = svg.selectAll("circle.coolingSitesShapes")
+  .data(coolingSites)
+  .join("circle")
+  .attr("class", "coolingSitesShapes")
+  .attr("r", 5)
+  .attr("transform", d => {
+    const [x, y] = projection([d.Longitude, d.Latitude])
+    return `translate(${x}, ${y})`
+  })
+  .attr("fill", "#CC2936");
+
+
+  // ADD TOOLTIP
+  const tooltip = d3.select("#container")
+    .append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0)
+
+  coolingSitesShapes.on("mouseover", function(d) {
+    tooltip.transition()
+      .duration(200)
+      .style("opacity", .9);
+    tooltip.html(`
+      <div>Property Name: ${d.PropertyName}</div>
+      <div>Feature Type: ${d.FeatureType}</div>
+      <div>Status: ${d.Status}</div>
+    `)
+      .style("left", (d3.event.pageX + 20) + "px")
+      .style("top", (d3.event.pageY - 28) + "px");
+  })
+  .on("mouseout", function(d) {
+    tooltip.transition()
+      .duration(500)
+      .style("opacity", 0);
+  });
+  // Get the input field and button elements from the DOM
+const inputField = document.getElementById('input-field');
+const submitButton = document.getElementById('submit-button');
+
+// Add an event listener to the button element
+submitButton.addEventListener('click', function() {
+  // Get the value of the input field
+  const inputText = inputField.value;
+  
+  // Log the input text to the console
+  console.log(inputText);
+});
+
 });

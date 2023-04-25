@@ -1,47 +1,33 @@
-#loader-wrapper {
-    position: fixed;
-    z-index: 99999;
-    width: 100%;
-    height: 100%;
-    background-color: #ffffff;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+#map {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
 }
-#loader {
-    display: inline-block;
-    width: 64px;
-    height: 64px;
-    position: relative;
-    border: 4px solid #f2f2f2;
-    animation: animateLoader 2s infinite;
+
+.states {
+  stroke-width: 0.5;
+  stroke: #666;
+  fill: #f8f8f8;
 }
-#loader:before {
-    content: "";
-    display: block;
-    border-radius: 50%;
-    width: 0;
-    height: 0;
-    margin: 6px;
-    box-sizing: border-box;
-    border: 26px solid #1d7cf2;
-    border-color: #1d7cf2 transparent #1d7cf2 transparent;
-    animation: animateRipple 2s infinite;
+
+.states:hover {
+  stroke: #000;
 }
-@keyframes animateLoader {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+
+.tooltip {
+  position: absolute;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+  pointer-events: none;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #333;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
 }
-@keyframes animateRipple {
-    0% {
-        transform: scale(0);
-    }
-    100% {
-        transform: scale(1);
-        opacity: 0;
-    }
+
+.tooltip.visible {
+  opacity: 1;
 }
