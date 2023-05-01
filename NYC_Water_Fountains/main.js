@@ -23,10 +23,10 @@ Promise.all([
     .attr("height", height);
 
   svg.append("text")
-    .attr("x", (width / 2))
+    .attr("x", (width / 4))
     .attr("y", margin.top * 2)
     .attr("text-anchor", "middle")
-    .style("font-size", "20px")
+    .style("font-size", "30px")
     .style("font-weight", "bold")
     .style("fill", "#08415C")
     .text("NYC Drinking Fountains");
@@ -61,4 +61,4 @@ Promise.all([
     .attr("fill", "#6baed6");
 
   });
-}, 2500); //4 SECOND DELAY BEFORE LOADING THE MAP
+}, 2300); //4 SECOND DELAY BEFORE LOADING THE MAP
