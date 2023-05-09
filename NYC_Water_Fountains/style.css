@@ -136,6 +136,34 @@ div {
   cursor: pointer;
 }
 
+/* Dot colors based on fountain type */
+.drinkingFountainsShapes.type-A {
+  fill: #fdae61; /* Rectangular Fountain with Child Step */
+}
+.drinkingFountainsShapes.type-B {
+  fill: #abd9e9; /* Circular Fountain */
+}
+.drinkingFountainsShapes.type-C {
+  fill: #2c7bb6; /* Circular Fountain with Child Step and Overhang */
+}
+.drinkingFountainsShapes.type-D {
+  fill: #d7191c; /* Rectangular Fountain with Overhang */
+}
+.drinkingFountainsShapes.type-E {
+  fill: #ffffbf; /* Wheelchair Accessible Fountain */
+}
+.drinkingFountainsShapes.type-Other {
+  fill: #bdbdbd; /* Water Bottle Stations, Etc. */
+}
+
+
+.drinkingFountainsShapes {
+  cursor: pointer;
+  stroke: white;
+  stroke-width: .5px;
+}
+
+
 /* Tooltip */
 .tooltip {
   position: absolute;
@@ -189,4 +217,29 @@ div {
 
 .tooltip.show {
   display: block;
+}
+
+/* Legend */
+#legend {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+  font-size: 14px;
+  z-index: 1;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.legend-item-color {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  border-radius: 50%;
 }
