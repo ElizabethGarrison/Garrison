@@ -46,27 +46,27 @@ setTimeout(() => {
       .attr("fill", "#EEE5E9")
       .attr("stroke", "#08415C");
 
-// APPEND DATA AS SHAPE
-const drinkingFountainsShapes = svg.selectAll("circle.drinkingFountainsShapes")
-  .data(drinkingFountains)
-  .join("circle")
-  .attr("class", "drinkingFountainsShapes")
-  .attr("r", 2)
-  .attr("transform", (d) => {
-    const [x, y] = projection([d.Long, d.Lat]);
-    return `translate(${x}, ${y})`;
-  })
-  .attr("fill", "#6baed6")
-  .on("mouseover", function (event, d) {
-    const tooltip = d3.select("#tooltip");
-    tooltip.style("display", "block");
-    tooltip.html(`<p><strong>Description:</strong> ${d.DESCRIPTIO}</p><p><strong>Sign Name:</strong> ${d.SIGNNAME}</p>`);
-    tooltip.style("left", event.pageX + 10 + "px");
-    tooltip.style("top", event.pageY + 10 + "px");
-  })
-  .on("mouseout", function () {
-    const tooltip = d3.select("#tooltip");
-    tooltip.style("display", "none");
+    // APPEND DATA AS SHAPE
+    const drinkingFountainsShapes = svg.selectAll("circle.drinkingFountainsShapes")
+      .data(drinkingFountains)
+      .join("circle")
+      .attr("class", "drinkingFountainsShapes")
+      .attr("r", 2)
+      .attr("transform", (d) => {
+        const [x, y] = projection([d.Long, d.Lat]);
+        return `translate(${x}, ${y})`;
+      })
+      .attr("fill", "#6baed6")
+      .on("mouseover", function (event, d) {
+        const tooltip = d3.select("#tooltip");
+        tooltip.style("display", "block");
+        tooltip.html(`<p><strong>Description:</strong> ${d.DESCRIPTIO}</p><p><strong>Sign Name:</strong> ${d.SIGNNAME}</p>`);
+        tooltip.style("left", event.pageX + 10 + "px");
+        tooltip.style("top", event.pageY + 10 + "px");
+      })
+      .on("mouseout", function () {
+        const tooltip = d3.select("#tooltip");
+        tooltip.style("display", "none");
+      });
   });
-});
-}, 2500); //4 SECOND DELAY BEFORE LOADING THE MAP
+}, 2500); // 2.5 SECOND DELAY BEFORE LOADING THE MAP
