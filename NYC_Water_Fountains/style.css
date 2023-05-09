@@ -126,28 +126,22 @@ div {
 }
 
 /*Animate Map + Text onto Screen*/
+#myDiv {
+  display: none;
+  text-align: center;
+}
 
 .animate-bottom {
   position: relative;
-  -webkit-animation-name: animatebottom;
-  -webkit-animation-duration: 1s;
   animation-name: animatebottom;
-  animation-duration: 1s
+  animation-duration: 1s;
+  animation-delay: 4s; /* add a delay of 4 seconds */
 }
 
-@-webkit-keyframes animatebottom {
-  from { bottom:-100px; opacity:0 } 
-  to { bottom:0px; opacity:1 }
+@keyframes animatebottom {
+  from { bottom: -100px; opacity: 0; } 
+  to { bottom: 0px; opacity: 1; }
 }
-
-@keyframes animatebottom { 
-  from{ bottom:-100px; opacity:0 } 
-  to{ bottom:0; opacity:1 }
-}
-
-
-
-
 
 
 /*Map*/
