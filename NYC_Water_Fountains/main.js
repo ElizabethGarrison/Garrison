@@ -61,10 +61,11 @@ setTimeout(() => {
         const tooltip = d3.select("#tooltip");
         tooltip.style("display", "block");
         tooltip.html(`<p><strong>Description:</strong> ${d.DESCRIPTIO}</p><p><strong>Sign Name:</strong> ${d.SIGNNAME}</p>`);
-        tooltip.style("left", event.pageX + 10 + "px");
-        tooltip.style("top", event.pageY + 10 + "px");
+        const parentPos = this.parentNode.getBoundingClientRect();
+        tooltip.style("left", event.offsetX + parentPos.left - 150 + "px");
+        tooltip.style("top", event.offsetY + parentPos.top - 150 + "px"); 
       })
-      .on("mouseout", function () {
+                  .on("mouseout", function () {
         const tooltip = d3.select("#tooltip");
         tooltip.style("display", "none");
       });
