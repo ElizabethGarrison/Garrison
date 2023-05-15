@@ -1,245 +1,52 @@
-/*Loading Screen by Adib Behjat*/
-body {
-  background-color: #3498DB;
-  overflow: hidden;
+/* Set the height of the map container */
+#mapid {
+  height: 100vh;
 }
 
-div {
-  margin: 175px auto;
+/* Style the marker clusters */
+.marker-cluster-small {
+  background-color: #4daf4a;
+  color: #ffffff;
 }
 
-.drop {
-  position: relative;
-	width: 20px;
-	height: 20px;
-  top: -30px;
-  margin: 0 auto;
-	background: #FFF;
-	-moz-border-radius: 20px;
-	-webkit-border-radius: 20px;
-	border-radius: 20px;
-  -moz-animation-name: drip;
-  -webkit-animation-name: drip;
-  animation-name: drip;
-  -moz-animation-timing-function: cubic-bezier(1,0,.91,.19);
-  -webkit-animation-timing-function: cubic-bezier(1,0,.91,.19);
-  animation-timing-function: cubic-bezier(1,0,.91,.19);
-  -moz-animation-duration: 2s;
-  -webkit-animation-duration: 2s;
-  animation-duration: 2s;
-  -moz-animation-iteration-count: infinite;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
+.marker-cluster-medium {
+  background-color: #377eb8;
+  color: #ffffff;
 }
 
-.drop:before {
-  content: "";
+.marker-cluster-large {
+  background-color: #e41a1c;
+  color: #ffffff;
+}
+
+/*Legend*/
+.legend {
   position: absolute;
-  width: 0;
-	height: 0;
-	border-left: 10px solid transparent;
-	border-right: 10px solid transparent;
-	border-bottom: 30px solid rgba(255,255,255,1);
-  top: -22px;
-}
-
-.wave {
-  position: relative;
-  opacity: 0;
-  top: 0;
-	width: 2px;
-	height: 1px;
-  border: #FFF 7px solid;
-	-moz-border-radius: 300px / 150px;
-	-webkit-border-radius: 300px / 150px;
-	border-radius: 300px / 150px;
-  -moz-animation-name: ripple;
-  -webkit-animation-name: ripple;
-  animation-name: ripple;
-  -moz-animation-delay: 2s;
-  -webkit-animation-delay: 2s;
-  animation-delay: 2s;
-  -moz-animation-duration: 2s;
-  -webkit-animation-duration: 2s;
-  animation-duration: 2s;
-  -moz-animation-iteration-count: infinite;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-}
-
-.wave:after {
-  content: "";
-  position: absolute;
-  opacity: 0;
-  top: -5px;
-  left: -5px;
-	width: 2px;
-	height: 1px;
-  border: #FFF 5px solid;
-	-moz-border-radius: 300px / 150px;
-	-webkit-border-radius: 300px / 150px;
-	border-radius: 300px / 150px;
-  -moz-animation-name: ripple-2;
-  -webkit-animation-name: ripple-2;
-  animation-name: ripple-2;
-  -moz-animation-duration: 2s;
-  -webkit-animation-duration: 2s;
-  animation-duration: 2s;
-  -moz-animation-iteration-count: infinite;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-}
-
-@keyframes ripple {
-    from {
-      opacity: 1;
-    }
-    to {
-      width: 600px;
-      height: 300px;
-      border-width: 1px;
-      top: -100px;
-      opacity: 0;
-    }
-}
-
-@keyframes ripple-2 {
-    0% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0;
-    }
-  100% {
-    width: 200px;
-    height: 100px;
-    border-width: 1px;
-    top: 100px;
-    left: 200px;
-  }
-}
-
-@keyframes drip {
-    to {
-      top: 190px;
-    }
-}
-
-/*Map*/
-.boroughs {
-  stroke-width: 1;
-  cursor: pointer;
-  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.4));
-}
-
-.drinkingFountainsShapes {
-  cursor: pointer;
-}
-
-/* Dot colors based on fountain type */
-.drinkingFountainsShapes.type-A {
-  fill: #fdae61; /* Rectangular Fountain with Child Step */
-}
-.drinkingFountainsShapes.type-B {
-  fill: #abd9e9; /* Circular Fountain */
-}
-.drinkingFountainsShapes.type-C {
-  fill: #2c7bb6; /* Circular Fountain with Child Step and Overhang */
-}
-.drinkingFountainsShapes.type-D {
-  fill: #d7191c; /* Rectangular Fountain with Overhang */
-}
-.drinkingFountainsShapes.type-E {
-  fill: #ffffbf; /* Wheelchair Accessible Fountain */
-}
-.drinkingFountainsShapes.type-Other {
-  fill: #bdbdbd; /* Water Bottle Stations, Etc. */
-}
-
-
-.drinkingFountainsShapes {
-  cursor: pointer;
-  stroke: white;
-  stroke-width: .5px;
-}
-
-
-/* Tooltip */
-.tooltip {
-  position: absolute;
-  display: none;
-  min-width: 150px;
-  max-width: 300px;
-  height: auto;
-  background-color: #fff;
-  border: 1px solid #aaa;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+  background-color: #ffffff;
   padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   font-size: 14px;
-  text-align: left;
-  pointer-events: none;
-  z-index: 9999;
-  box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.3);
-  top: -100px;
+  line-height: 1.5;
 }
 
-.tooltip:before {
-  content: "";
-  position: absolute;
-  border-style: solid;
-  border-width: 6px 6px 0 6px;
-  border-color: #aaa transparent transparent transparent;
-  top: -6px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.tooltip:after {
-  content: "";
-  position: absolute;
-  border-style: solid;
-  border-width: 6px 6px 0 6px;
-  border-color: #fff transparent transparent transparent;
-  top: -4px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.tooltip p {
-  margin: 5px 0;
-  font-size: 14px;
-}
-
-.tooltip strong {
-  display: inline-block;
-  width: 90px;
+.legend h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 16px;
   font-weight: bold;
 }
 
-.tooltip.show {
-  display: block;
-}
-
-/* Legend */
-#legend {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  padding: 10px;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 5px;
-  font-size: 14px;
-  z-index: 1;
-}
-
-.legend-item {
-  display: flex;
-  align-items: center;
+.legend div {
   margin-bottom: 5px;
 }
 
-.legend-item-color {
+.legend img {
   width: 20px;
   height: 20px;
   margin-right: 5px;
-  border-radius: 50%;
+  vertical-align: middle;
 }
