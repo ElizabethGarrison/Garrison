@@ -9,8 +9,8 @@ For my final project, I created an interactive data visualization to represent t
 The NYC Water Fountains visualization is an interactive map that provides users information on the location and type of public water fountains in New York City. The data used in this visualization was obtained from the [NYC Open Data](https://data.cityofnewyork.us/Environment/NYC-Parks-Drinking-Fountains/622h-mkfu), and includes information on over 3,000 different water fountains throughout the five boroughs. This visualization allows users to filter the fountains by borough and type with also providing necessary detailed information on each individual fountain for easy access.
 
 ## Screencap:
+![4046bde689d88cda1b819cc43a006940](https://github.com/ElizabethGarrison/Garrison/assets/105076696/418072fc-9cc2-40db-879c-a611ebce0888)
 
-https://i.gyazo.com/4046bde689d88cda1b819cc43a006940.gif
 
 ## Technical documentation:
 
