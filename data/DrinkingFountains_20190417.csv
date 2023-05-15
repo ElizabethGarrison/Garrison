@@ -1,4 +1,4 @@
-﻿Long,Lat,Painted,SIGNNAME,BOROUGH,FountainCo,TYPE,DESCRIPTION,FEATURESTA
+﻿LONGITUDE,LATITUDE,Painted,SIGNNAME,BOROUGH,FountainCo,TYPE,DESCRIPTION,FEATURESTA
 -73.98659181,40.60753207,no,Seth Low Playground/ Bealin Square,B,2,F,High Low Out in Open,Active
 -73.96862766,40.74808719,no,Robert Moses Playground,M,1,C, In Playground,Active
 -74.00036316,40.75003603,yes,Chelsea Park,M,1,D, Under Tree Near Ballfield Just Outside Playground,Active

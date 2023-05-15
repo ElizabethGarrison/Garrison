@@ -1,20 +1,42 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Water Fountains in NYC</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NYC Drinking Fountains</title>
+    <!-- Link to Leaflet CSS and JS libraries -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    <!-- Link to Leaflet.markercluster CSS and JS libraries -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+
+    <!-- Link to D3 library -->
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+
+    <!-- Link to my own CSS file -->
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="loading-screen"></div>
-    <div id="container"></div>
-    <div id="tooltip" class="tooltip"></div>
-    <div id="legend"></div>
-    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- Create a div to hold the map -->
+    <div id="mapid"></div>
+
+    <!-- Link to my own JavaScript file -->
     <script src="main.js"></script>
-    <div class="drop"></div>
-    <div class="wave"></div>
+
+    <!-- Create a legend-->
+    <div id="mapid"></div>
+<div class="legend">
+  <h4>NYC Water Fountains</h4>
+  <div><img src="images/rectangular-fountain.png"> Rectangular fountain</div>
+  <div><img src="images/circular-fountain.png"> Circular fountain</div>
+  <div><img src="images/circular-fountain-overhang.png"> Circular fountain with overhang</div>
+  <div><img src="images/rectangular-fountain-overhang.png"> Rectangular fountain with overhang</div>
+  <div><img src="images/wheelchair-fountain.png"> Wheelchair-accessible fountain</div>
+  <div><img src="images/water-bottle.png"> Bottle-filling fountain</div>
+  <div><img src="images/default.png"> Unknown fountain type</div>
+</div>
+
   </body>
 </html>
-
