@@ -1,4 +1,4 @@
-# NYC Drinking Water Fountains Final Project Reflection
+# [NYC Drinking Water Fountains Final Project Reflection](https://elizabethgarrison.github.io/Garrison/NYC_Water_Fountains/)
 
 ## Introduction:
 
@@ -8,9 +8,9 @@ For my final project, I created an interactive data visualization to represent t
 
 The NYC Water Fountains visualization is an interactive map that provides users with information on the location and type of public water fountains in New York City. The data used in this visualization was obtained from the [NYC Open Data](https://data.cityofnewyork.us/Environment/NYC-Parks-Drinking-Fountains/622h-mkfu) and includes information on over 3,000 different water fountains throughout the five boroughs.
 
-## Screencap:
+## [Screencap:](https://i.gyazo.com/4046bde689d88cda1b819cc43a006940.gif)
+![4046bde689d88cda1b819cc43a006940](https://github.com/ElizabethGarrison/Garrison/assets/105076696/ef09d84c-2dd0-46bf-905c-52a9a66b986a)
 
-https://i.gyazo.com/4046bde689d88cda1b819cc43a006940.gif
 
 ## Technical documentation:
 
@@ -24,6 +24,7 @@ Throughout the development of the NYC Water Fountains visualization, I kept a re
 Using the data set “Cool It!” from NYC Open Data  I will be using an exploratory website to showcase the different water fountains around NYC. When first clicking onto the website I would like the “loading page” to be a drop of water going down with a ripple effect. There has a map of New York City with dots to showcase the water fountains in every borough. (Either one map or smaller portions of the map to represent the map whole). Once clicking on the dot there will be cross-referencing data of if it is broken, the position, nearby parks, and filter installation. 
 
 ### Sketch
+![image1](https://github.com/ElizabethGarrison/Garrison/assets/105076696/14caeeb8-3b33-442e-ad74-1ac40dbe7279)
 
 
 ## Reflection:
