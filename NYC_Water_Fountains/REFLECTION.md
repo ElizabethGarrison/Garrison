@@ -14,7 +14,7 @@ The NYC Water Fountains visualization is an interactive map that provides users 
 
 ## Technical documentation:
 
-As previously stated, the data used in the NYC Water Fountains visualization was obtained from the [NYC Open Data](https://data.cityofnewyork.us/Environment/NYC-Parks-Drinking-Fountains/622h-mkfu). The data is in a CSV format, the only cleaning and editing were fixing the longitude and latitude into separate columns and removing unnecessary columns. The front-end of the visualization was built using the Leaflet library for mapping, and the D3.js library for data visualization. The map markers are from [IconPro86](https://www.flaticon.com/free-icon/location_9805378?term=map+marker&page=2&position=20&origin=tag&related_id=9805378) with adjusting the colors and creating a "pinwheel" design on one of them. The loading page is. 
+As previously stated, the data used in the NYC Water Fountains visualization was obtained from the [NYC Open Data](https://data.cityofnewyork.us/Environment/NYC-Parks-Drinking-Fountains/622h-mkfu). The data is in a CSV format, the only cleaning and editing were fixing the longitude and latitude into separate columns and removing unnecessary columns. The front-end of the visualization was built using the Leaflet library for mapping, and the D3.js library for data visualization. The map markers are from [IconPro86](https://www.flaticon.com/free-icon/location_9805378?term=map+marker&page=2&position=20&origin=tag&related_id=9805378) with adjusting the colors and creating a "pinwheel" design on one of them. 
 
 ## Artifacts of the Design Process:
 
