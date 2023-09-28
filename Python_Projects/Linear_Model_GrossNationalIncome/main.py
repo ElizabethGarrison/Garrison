@@ -1,38 +1,36 @@
-# Code block 1: Import libraries
-import numpy as np
 import pandas as pd
 import statsmodels.api as sm
-import seaborn as sb
-import matplotlib.pyplot as plt 
-import scipy.stats as scp
+import matplotlib.pyplot as plt
 
-# Code block 2: Read in data
+# Read the data into a DataFrame
 GlobalSocialIndicators = pd.read_excel('http://data.shortell.nyc/files/HumanDevelopment.xlsx', index_col='Country', na_values=['NA'])
-GlobalSocialIndicators.head() # This allows us to inspect the top of the data file
-GlobalSocialIndicators[['Human Development Index (HDI)', 'Gross National Income (GNI) per Capita']].describe()
-GlobalSocialIndicators.describe()
 
-# Code block 3: The linear model
+# Display the first few rows of the DataFrame to inspect the data
+GlobalSocialIndicators.head()
+
+# Define the dependent variable (DV) and independent variable (IV)
 Y = GlobalSocialIndicators['Life Expectancy at Birth']
 X = GlobalSocialIndicators['Gross National Income (GNI) per Capita']
-X = sm.add_constant(X)
-model0 = sm.OLS(Y, X, missing='drop').fit()
-print(model0.summary())
 
-# Code block 4: Visualizing the linear model
-p = sb.lmplot('Gross National Income (GNI) per Capita', 'Life Expectancy at Birth', data=GlobalSocialIndicators)
-p.fig.set_figwidth(20)
-p.fig.set_figheight(12)
+# Add a constant term to the independent variable (intercept)
+X = sm.add_constant(X)
+
+# Fit the linear regression model
+model = sm.OLS(Y, X).fit()
+
+# Print the regression summary
+print(model.summary())
+
+# Scatter plot of the data
+plt.scatter(X['Gross National Income (GNI) per Capita'], Y, label='Data')
+
+# Plot the regression line
+plt.plot(X['Gross National Income (GNI) per Capita'], model.predict(X), color='red', label='Regression Line')
+
+# Add labels and a legend
+plt.xlabel('Gross National Income (GNI) per Capita')
+plt.ylabel('Life Expectancy at Birth')
+plt.legend()
+
+# Show the plot
 plt.show()
-
-# Code block 5: The linear model
-Y = GlobalSocialIndicators['Life Expectancy at Birth']
-X = GlobalSocialIndicators[['Gross National Income (GNI) per Capita', 'Expected Years of Education']]
-X = sm.add_constant(X)
-model2 = sm.OLS(Y, X, missing='drop').fit()
-print(model2.summary())
-
-# Checking on colinearity
-corrtab, corrsig = scp.stats.pearsonr(GlobalSocialIndicators['Gross National Income (GNI) per Capita'], GlobalSocialIndicators['Mean Years of Education'])
-corrtab
-corrsig
