@@ -86,43 +86,44 @@ recovery_rates = [0.0002, 0.001, 0.005]  # Recovery rates
 results_case2 = []
 
 for recovery_rate in recovery_rates:
-    center_infection = np.zeros(N, dtype=bool)  # Define center_infection here
-    
-    # Assume a portion of the recovered population is susceptible to reinfection
-    susceptible_reinfected = int(0.05 * N)
-    recovered_pop = np.zeros(N, dtype=bool)
-    recovered_pop[:susceptible_reinfected] = True
-    
-    for _ in range(steps):
-        # Randomly select recovered individuals susceptible to reinfection
-        np.random.shuffle(recovered_pop)
-        reinfect_indices = np.where(recovered_pop)[0][:susceptible_reinfected]
+    for _ in range(5):  # Run 5 simulations for each recovery rate to get termination steps
+        center_infection = np.zeros(N, dtype=bool)
+        susceptible_reinfected = int(0.05 * N)
+        recovered_pop = np.zeros(N, dtype=bool)
+        recovered_pop[:susceptible_reinfected] = True
         
-        # Recover and reinfect susceptible individuals
-        recovered_pop[reinfect_indices] = False
-        recovered_pop = np.logical_or(recovered_pop, np.random.rand(N) < recovery_rate)
-        
-        # Calculate distances to population centers
-        for center in centers:
-            distances = np.linalg.norm(walker_positions - center, axis=1)
-            infections = distances <= 0.2  # Assuming 0.2 km as touching distance
-            infections = np.logical_and(infections, np.logical_not(recovered_pop))
-            center_infection = np.logical_or(center_infection, infections)
-        
-        # Check simulation termination condition for SIRS model (95% infected)
-        if np.sum(center_infection) >= 0.95 * N:
-            results_case2.append((walker_positions, center_infection, recovery_rate))
-            break
+        for step in range(steps):
+            np.random.shuffle(recovered_pop)
+            reinfect_indices = np.where(recovered_pop)[0][:susceptible_reinfected]
+            recovered_pop[reinfect_indices] = False
+            recovered_pop = np.logical_or(recovered_pop, np.random.rand(N) < recovery_rate)
+            
+            for center in centers:
+                distances = np.linalg.norm(walker_positions - center, axis=1)
+                infections = distances <= 0.2
+                infections = np.logical_and(infections, np.logical_not(recovered_pop))
+                center_infection = np.logical_or(center_infection, infections)
+            
+            if np.sum(center_infection) >= 0.95 * N:
+                results_case2.append((walker_positions, center_infection, recovery_rate, step))
+                break
+
+# Print results for Case 2
+print("\nResults for Case 2:")
+for result in results_case2:
+    _, _, recovery_rate, termination_step = result
+    print(f"Recovery Rate: {recovery_rate:.4f}, Termination Step: {termination_step}")
 
 # Plotting for Case 2
-plt.subplot(2, 2, 2)
+plt.figure(figsize=(12, 8))
+plt.subplot(2, 2, 3)
 
 for center in centers:
     plt.scatter(center[0], center[1], color='red', marker='o', label='Population Center')
 
 for result in results_case2:
-    walker_positions, infections_over_time, recovery_rate = result
-    plt.scatter(walker_positions[:, 0], walker_positions[:, 1], c=infections_over_time, cmap='cool', alpha=0.5, label=f'Infected Walkers, Recovery Rate={recovery_rate:.4f}')
+    walker_positions, infections_over_time, _, _ = result
+    plt.scatter(walker_positions[:, 0], walker_positions[:, 1], c=infections_over_time, cmap='cool', alpha=0.5, label=f'Recovery Rate={recovery_rate:.4f}')
 
 plt.xlabel('X')
 plt.ylabel('Y')
