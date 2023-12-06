@@ -7,9 +7,12 @@ from mpl_toolkits.axes_grid1 import make_axes_locatable
 from matplotlib.widgets import Slider
 
 # Load datasets
-hospital_data = pd.read_csv('Hospital_data.csv')
-covid_data = pd.read_csv('time_series_covid19_confirmed_US.csv')
-airport_data = pd.read_csv('us-airports.csv')
+hospital_data = pd.read_csv('data\\Capstone\\Hospital_data.csv')
+covid_data = pd.read_csv('data\\Capstone\\time_series_covid19_confirmed_US.csv')
+airport_data = pd.read_csv('data\\Capstone\\us-airports.csv')
+
+print(hospital_data.columns)
+print(covid_data.columns)
 
 # Extract relevant columns from covid_data
 covid_data = covid_data[['FIPS', 'Combined_Key', 'Province_State'] + 
