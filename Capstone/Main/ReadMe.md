@@ -21,41 +21,25 @@ D. Reflection on ethical approaches to answering the research question.
 E. Additional resources (this might be other sources of data or a statement about what good data would be)
 
 *Project Outline:*
-A. Introduction  
- 
-Research Question: How can predictive modeling be applied to COVID-19 outbreaks in the United States, taking into account geospatial data of military bases, hospitals, airports, and other factors, to improve our understanding of the pandemic's spread? 
- 
-The goal of this study is to use predictive modeling for COVID-19 outbreaks by incorporating geospatial data from military bases, hospitals, and airports across the United States. The central question is how to use data to better understand the spread of the pandemic and its potential impact on critical locations. To answer this question, we will use the seven Data Feminism principles to critically assess and analyze the data sources. 
- 
-B. Data Set (subject to change; addition of new data sets will be incorporated)  
+A. Introduction: The research question focuses on understanding the factors influencing school shootings in America, considering the societal, gendered, and contextual aspects of these incidents.
 
- 
-COVID-19 Data Set Cases: This dataset provides daily information on confirmed COVID-19 cases in the US. It includes geographical data, time series data, and case counts by location. COVID-19 Data 
+B. Data Sources: The primary data source would be the K-12 School Shooting Database (k12ssdb.org), providing detailed records of school shootings. However, it's crucial to note the limitations of this data—its quality might vary in terms of completeness, accuracy, and potential biases in reporting. To complement this, additional data sources such as:
 
-  
+Demographic Data: Census Bureau data or education department datasets can provide insights into regional socio-economic factors, racial demographics, and educational profiles.
+Gun Legislation Data: Examining state-by-state gun laws from authoritative sources can shed light on the relationship between policy and incidence of school shootings.
+Mental Health Statistics: Accessing mental health institution data or surveys can offer insights into mental health access, stigma, and prevalence of conditions linked to such incidents.
+Plan for Analysis: Analyzing these data sources collectively involves:
 
-Hospital GeoData: The Hospital GeoData dataset offers geospatial information on hospitals, including their locations and capabilities. Hospital GeoData 
+Quantitative Analysis: Descriptive statistics and geospatial analysis can identify trends, frequencies, and geographical patterns of school shootings.
+Qualitative Analysis: Interviews or surveys with survivors, educators, and communities affected by school shootings can provide nuanced perspectives and qualitative data.
+Intersectional Analysis: Considering how race, gender, socio-economic status, and policy interplay in the occurrence and aftermath of these events.
+C. Critical Reflection of Data:
 
-  
+Examine Power: Assess how power dynamics (e.g., political, racial, gendered) shape data collection, representation, and interpretation.
+Challenge Power: Critically question biases within the data, considering underreporting, misclassification, or selective coverage of incidents.
+Embrace Pluralism: Recognize diverse perspectives, amplifying voices that might be marginalized or overlooked in the data.
+Consider Context: Understand that each incident exists within a broader social, cultural, and policy context—avoid reductionist analysis.
+Make Labor Visible: Acknowledge the efforts of those who collect and compile data, while recognizing potential limitations in their approaches.
+D. Ethical Approaches: Ensure ethical considerations guide the research process, respecting privacy, consent, and confidentiality of individuals involved. Additionally, consider the implications of findings—avoiding perpetuating stereotypes or stigmatizing communities.
 
-Military GeoData: The Military GeoData dataset provides information about military bases' locations and their characteristics. Military GeoData 
-
-  
-
-Airports GeoData: The Airports GeoData dataset contains information about airports across the United States. It includes data on airport locations, size, and functionality. Airports GeoData 
- 
-C. Plan for Analysis  
- 
-Examine Power: Examine the potential impact of COVID-19 on various locations and determine whether certain areas, such as military bases, are more vulnerable to outbreaks due to personnel movement. 
- 
-Challenge Power: Investigate disparities in healthcare access by examining hospital proximity to vulnerable communities and identifying potential inequities. 
- 
-Elevate Emotion & Embodiment: Consider the emotional impact of the pandemic on different communities, as well as how it may be exacerbated by the location of essential services and military bases. 
- 
-Rethink Binaries & Hierarchies: Investigate how the pandemic affects both urban and rural areas, as well as whether COVID-19 impacts vary by location. 
- 
-Embrace Pluralism: Recognize the diversity of pandemic experiences across regions, as well as how the presence of airports and military bases may affect different communities. 
- 
-Consider Context: Examine the geographic context of COVID-19 outbreaks, including how airport traffic may contribute to the spread. 
- 
-Make Labor Work Visible: Examine the workforces in critical locations, such as hospital healthcare workers and military personnel, and their exposure to the virus. 
+E. Additional Resources: Seek other sources of data that provide a more comprehensive understanding of the complexities surrounding school shootings. This could include victim impact reports, mental health support access, or educational reform proposals.
